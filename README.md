@@ -4,6 +4,10 @@
     <p>Obtain the main color and secondary color of the image, and provide the API for generating the gradient effect.</p>
 </div>
 
+<h3>Demo</h3>
+<hr>
+
+* [Demo](https://img-color.now.sh/)
 
 <h3>Install</h3>
 <hr>
