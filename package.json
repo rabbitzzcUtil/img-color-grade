@@ -7,6 +7,7 @@
         "dev": "parcel examples/index.html",
         "build": "rm -rf lib && parcel build src/core.js --no-source-maps --out-dir lib --out-file core.min.js ",
         "example": "rm -rf dist &&  parcel build examples/index.html --no-source-maps",
+        "umd":"rm -rf lib && parcel build src/core.js --global --no-source-maps --out-dir lib --out-file core.min.js ",
         "test": ""
     },
     "repository": {
