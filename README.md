@@ -1,4 +1,3 @@
-script
 <div class="intro" style="text-align:center;">
     <h3>img-color-grade</h3>
     <p>利用 canvas 获取图片颜色，可获取图片主色与次色，并提供生成渐变效果API。</p>
@@ -10,19 +9,23 @@ script
 <hr>
 
 <h4>node_modules</h4>
+
 ```sh
 # yarn
 yarn add img-color-grade
 #npm
 npm install img-color-grade --save
 ```
+
 <h4>script</h4>
+
 ```html
 <script src="xxx></script>
 ```
 
 <h3>Usage</h3>
 <hr>
+
 ```js
  const imgs = Array.from(document.querySelectorAll('.img img'))
     
