@@ -1,15 +1,15 @@
 {
     "name": "img-color-grade",
     "version": "1.0.0",
-    "main": "src/img-color-grade.js",
+    "main": "dist/core.min.js",
     "license": "MIT",
     "scripts": {
-        "build": "rm -rf dist && parcel build src/img-color-grade.js --no-source-maps --out-file img-color-grade",
+        "build": "rm -rf dist && parcel build src/core.js --no-source-maps --out-file core.min.js",
         "test": ""
     },
     "repository": {
         "type": "git",
-        "url": ""
+        "url": "https://github.com/fd532/img-color-grade"
     },
     "keywords": [
         "color",
@@ -20,7 +20,7 @@
         "gradient"
     ],
     "author": "Rabbitzzc",
-    "homepage": "",
+    "homepage": "https://github.com/fd532/img-color-grade",
     "devDependencies": {
         "babel-core": "^6.26.3",
         "babel-preset-env": "^1.7.0"

@@ -5,7 +5,7 @@ import {
     hexToRgb
 } from './lib'
 
-class imgColorGrade {
+export default class imgColorGrade {
     constructor(imgURL) {
 
         if (typeof imgURL !== 'string') {
@@ -107,8 +107,9 @@ class imgColorGrade {
         return counts.sort((a, b) => b.count - a.count)
     }
 
-    // 对外开放 API
+    // 对外开放 API，仅为浏览器中可用
     async getRenderGradient() {
+        // typeof window === 'undefined' ? global : window ;
         // 通过获取最高色与最低色，然后根据占比生成 css 渐变属性
         let arr = await this.getColor()
         return this.getCSSGradientString(arr)
@@ -125,9 +126,14 @@ class imgColorGrade {
         return [colorsObj[0], colorsObj[colorsObj.length - 1]]
     }
 
-    // 通过数据生成颜色属性字符串
+    // 通过数据生成颜色属性字符
     getCSSGradientString(arr) {
         const rgbaGradientValues = `${arr[0].color} 0%, ${arr[1].color} 75%`
         return `background-image: -webkit-linear-gradient(135deg, ${rgbaGradientValues});background-image: linear-gradient(135deg, ${rgbaGradientValues});`
     }
+
+    // 数据分析函数，对调色板数据分析，折线图、柱状图、圆饼图
+    // node 环境 与 浏览器环境
+    // node 环境：利用 nide-chart.sj 生成控制台字符串
+    // 浏览器环境：利用 chart.js 生成一个 canvas，然后用户指定输入位置即可
 }
