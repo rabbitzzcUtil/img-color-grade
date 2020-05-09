@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>img-color-grade</title>
+    <link rel="stylesheet" href="./style.css">
+</head>
+
+<body>
+    <div class="container">
+        <div class="intro">
+            <!-- 需要增加一张图片 -->
+            <h1>img-color-grade</h1>
+            <p>利用 canvas 获取图片颜色，并提供渐变效果.</p>
+        </div>
+        <h3>渐变背景</h3>
+        <hr>
+        <div class="example">
+            <h4>世界名画</h4>
+            <div class="compare">
+                <div class="img" id="img1">
+                    <img src="./img/世界名画/George Engelhardt Schröder - Mehmed Said Efendi and his Retinue .jpg"
+                        id="testImg" style="width:200px">
+                </div>
+                <div class="img" id="img2">
+                    <img src="./img/世界名画/梵高自拍.jpg" style="width:200px">
+                </div>
+                <div class="img" id="img3">
+                    <img src="./img/世界名画/丰收谈话.png" style="width:200px">
+                </div>
+                <div class="img" id="img4">
+                    <img src="./img/世界名画/大碗岛的星期天下午.jpg" style="width:200px">
+                </div>
+            </div>
+
+            <h4>必应图片</h4>
+            <div class="compare">
+                <div class="img" id="img5">
+                    <img src="./img/必应图片/乌尤尼盐沼，玻利维亚 (© Ignacio Palacios:Getty Images).jpg" id="testImg"
+                        style="width:200px">
+                </div>
+                <div class="img" id="img6">
+                    <img src="./img/必应图片/正在照看花草的孩子和祖父铜雕，西班牙科尔多瓦 (© David M G:Alamy).jpg" style="width:200px">
+                </div>
+                <div class="img" id="img7">
+                    <img src="./img/必应图片/库斯科附近萨克塞华曼的印加要塞，秘鲁 (© Susanne Kremer:eStock Photo).jpg" style="width:200px">
+                </div>
+                <div class="img" id="img8">
+                    <img src="./img/必应图片/普尔曼附近的帕卢斯一辆拖拉机在耕作时扬起尘土，华盛顿州 (© Ben Herndon:Tandem Stills + Motion).jpg"
+                        style="width:200px">
+                </div>
+            </div>
+        </div>
+
+        <h3>调色板</h3>
+        <hr>
+        <div class="example palette">
+            <h4>世界名画</h4>
+            <div class="compare">
+                <div class="img" id="img9">
+                    <img src="./img/世界名画/George Engelhardt Schröder - Mehmed Said Efendi and his Retinue .jpg"
+                        id="testImg" style="width:200px">
+                </div>
+                <div class="img" id="img10">
+                    <img src="./img/世界名画/梵高自拍.jpg" style="width:200px">
+                </div>
+                <div class="img" id="img11">
+                    <img src="./img/世界名画/丰收谈话.png" style="width:200px">
+                </div>
+                <div class="img" id="img12">
+                    <img src="./img/世界名画/大碗岛的星期天下午.jpg" style="width:200px">
+                </div>
+            </div>
+
+            <h4>必应图片</h4>
+            <div class="compare">
+                <div class="img" id="img13">
+                    <img src="./img/必应图片/乌尤尼盐沼，玻利维亚 (© Ignacio Palacios:Getty Images).jpg" id="testImg"
+                        style="width:200px">
+                </div>
+                <div class="img" id="img14">
+                    <img src="./img/必应图片/正在照看花草的孩子和祖父铜雕，西班牙科尔多瓦 (© David M G:Alamy).jpg" style="width:200px">
+                </div>
+                <div class="img" id="img15">
+                    <img src="./img/必应图片/库斯科附近萨克塞华曼的印加要塞，秘鲁 (© Susanne Kremer:eStock Photo).jpg" style="width:200px">
+                </div>
+                <div class="img" id="img16">
+                    <img src="./img/必应图片/普尔曼附近的帕卢斯一辆拖拉机在耕作时扬起尘土，华盛顿州 (© Ben Herndon:Tandem Stills + Motion).jpg"
+                        style="width:200px">
+                </div>
+            </div>
+        </div>
+
+        <h3>Usage</h3>
+        <hr>
+        <div class="usage">
+            一串代码
+        </div>
+
+        <h3>API</h3>
+        <hr>
+        <div class="get-color">
+            <h4>getColor(imageUrl, count)</h4>
+            <h5>返回一个对象，包括调色板，主色、次色</h5>
+            <p>从图像获取主色。颜色以三个表示红色，绿色和蓝色值的 RGB(A) 格式的字符串。</p>
+
+            <ul>
+                <li>imageUrl - 图片url，为 img 标签的 src 属性，或者直接一个远程链接。</li>
+                <li>count - 是一个可选参数，必须为1或更大的Integer，默认为10。</li>
+            </ul>
+        </div>
+
+    </div>
+</body>
+
+</html>

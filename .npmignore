@@ -7,3 +7,5 @@ src
 examples/
 
 *.lock
+
+.DS_Store

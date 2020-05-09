@@ -4,6 +4,7 @@
     "main": "dist/core.min.js",
     "license": "MIT",
     "scripts": {
+        "dev": "parcel examples/index.html",
         "build": "rm -rf dist && parcel build src/core.js --no-source-maps --out-file core.min.js",
         "test": ""
     },
