@@ -30,7 +30,7 @@ export default class imgColorGrade {
     // 对外提供的 API
     async getColor(colorCount = 10, ignore = []) {
         const data = await this.getImageData()
-        const colors = this.getImageColorCount(data, ignore) || []
+        const colors = this.getImageColorCount(data.data, ignore) || []
 
         if (colors.length === 0) return {}
 
@@ -38,7 +38,7 @@ export default class imgColorGrade {
         return {
             dominant: colors[0],
             secondary: colors[1],
-            palette: colorCount ? colors.slice(0, 10) : colors
+            palette: colorCount ? colors.slice(0, colorCount) : colors
         }
     }
 
@@ -49,18 +49,18 @@ export default class imgColorGrade {
 
             //  错误处理
             const handleError = (error = 'The image source failed to load') => reject(new Error(error))
-            imgObj.onerror = handleError
-            imgObj.onabort = handleError
+            this.imgObj.onerror = handleError
+            this.imgObj.onabort = handleError
 
             //  加载完成
             this.imgObj.onload = () => {
                 const {
                     width,
                     height
-                } = imgObj
+                } = this.imgObj
                 this.canvas = this.getCanvasContext(width, height)
                 this.ctx = this.canvas.getContext('2d')
-                this.ctx.drawImage(imgObj, 0, 0, width, height)
+                this.ctx.drawImage(this.imgObj, 0, 0, width, height)
 
                 // resolve
                 resolve(this.ctx.getImageData(0, 0, width, height))
@@ -111,7 +111,7 @@ export default class imgColorGrade {
     async getRenderGradient() {
         // typeof window === 'undefined' ? global : window ;
         // 通过获取最高色与最低色，然后根据占比生成 css 渐变属性
-        let arr = await this.getColor()
+        let arr = await this.getExtremeValue()
         return this.getCSSGradientString(arr)
     }
 
@@ -123,7 +123,7 @@ export default class imgColorGrade {
             throw new Error('Failed to obtain color data.')
         }
 
-        return [colorsObj[0], colorsObj[colorsObj.length - 1]]
+        return [colorsObj['palette'][0], colorsObj['palette'][colorsObj['palette'].length - 1]]
     }
 
     // 通过数据生成颜色属性字符

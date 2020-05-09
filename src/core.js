@@ -1,6 +1,6 @@
-import imgColorGrade from './img-color-grade'
+import ImgColorGrade from './img-color-grade'
 
 
-export default async function (imgURL) {
-    return new imgColorGrade(imgURL)
+export default function (imgURL) {
+    return new ImgColorGrade(imgURL)
 }
