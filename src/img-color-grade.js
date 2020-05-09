@@ -27,9 +27,19 @@ class imgColorGrade {
         return canvas
     }
 
-    async getColor(ignore = []) {
+    // 对外提供的 API
+    async getColor(colorCount = 10, ignore = []) {
         const data = await this.getImageData()
-        return this.getImageColorCount(data, ignore)
+        const colors = this.getImageColorCount(data, ignore) || []
+
+        if (colors.length === 0) return {}
+
+        //  添加主色与次色属性
+        return {
+            dominant: colors[0],
+            secondary: colors[1],
+            colorsData: colorCount ? colors.slice(0, 10) : colors
+        }
     }
 
     getImageData() {
@@ -85,7 +95,7 @@ class imgColorGrade {
 
             if (ignore.indexOf(color) > -1) continue
 
-            colorMaps[color] ? colorMaps[color].count++ : (colorMaps[color] = {
+            colorMaps[color] ? ++colorMaps[color].count : (colorMaps[color] = {
                 color,
                 count: 1
             })
@@ -95,5 +105,29 @@ class imgColorGrade {
         // 降序排序
         const counts = Object.values(colorMaps)
         return counts.sort((a, b) => b.count - a.count)
+    }
+
+    // 对外开放 API
+    async getRenderGradient() {
+        // 通过获取最高色与最低色，然后根据占比生成 css 渐变属性
+        let arr = await this.getColor()
+        return this.getCSSGradientString(arr)
+    }
+
+    // 获取颜色数据中存在最多的颜色与存在最低的颜色，即数组的首尾
+    async getExtremeValue() {
+        // 最高值 与 最低值，前十个数据
+        const colorsObj = await this.getColor()
+        if (colorsObj.colorsData.length === 0) {
+            throw new Error('Failed to obtain color data.')
+        }
+
+        return [colorsObj[0], colorsObj[colorsObj.length - 1]]
+    }
+
+    // 通过数据生成颜色属性字符串
+    getCSSGradientString(arr) {
+        const rgbaGradientValues = `${arr[0].color} 0%, ${arr[1].color} 75%`
+        return `background-image: -webkit-linear-gradient(135deg, ${rgbaGradientValues});background-image: linear-gradient(135deg, ${rgbaGradientValues});`
     }
 }
