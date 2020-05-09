@@ -38,7 +38,7 @@ class imgColorGrade {
         return {
             dominant: colors[0],
             secondary: colors[1],
-            colorsData: colorCount ? colors.slice(0, 10) : colors
+            palette: colorCount ? colors.slice(0, 10) : colors
         }
     }
 
@@ -118,7 +118,7 @@ class imgColorGrade {
     async getExtremeValue() {
         // 最高值 与 最低值，前十个数据
         const colorsObj = await this.getColor()
-        if (colorsObj.colorsData.length === 0) {
+        if (colorsObj.palette.length === 0) {
             throw new Error('Failed to obtain color data.')
         }
 
