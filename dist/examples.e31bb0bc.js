@@ -1225,28 +1225,35 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 
 // import dom from './dom.js'
 window.onload = function () {
-  var imgs = Array.from(document.querySelectorAll('.img img')); // /** ============ 渐变 ===================== */
-  // const famousImgs = imgs.slice(0, 8)
-  // const famousImgSrc = famousImgs.map(img => img.src)
-  // famousImgSrc.forEach((src,index) => {
-  //     const obj = colorGrade(src)
-  //     obj.getRenderGradient().then(rgba => {
-  //         famousImgs[index].parentNode.setAttribute('style', rgba)
-  //     })
-  // })
-  // /** =========== 调色板 ====================== */
-  // const paletteImgs = imgs.slice(8, 16)
-  // const paletteImgSrc = paletteImgs.map(img => img.src)
-  // const paletteEls = Array.from(document.querySelectorAll('.example-palette .img .palette'))
-  // paletteImgSrc.forEach((src,index) => {
-  //     const obj = colorGrade(src)
-  //     obj.getColor(5).then(color => {
-  //         const html = color.palette.map(o => {
-  //             return `<div style='background:${o.color};border-radius:50%;width:20px;height:20px;margin:5px;'></div>`
-  //         }).join('')
-  //         paletteEls[index] && (paletteEls[index].innerHTML =  html)
-  //     })
-  // })
+  var imgs = Array.from(document.querySelectorAll('.img img'));
+  /** ============ 渐变 ===================== */
+
+  var famousImgs = imgs.slice(0, 8);
+  var famousImgSrc = famousImgs.map(function (img) {
+    return img.src;
+  });
+  famousImgSrc.forEach(function (src, index) {
+    var obj = (0, _core.default)(src);
+    obj.getRenderGradient().then(function (rgba) {
+      famousImgs[index].parentNode.setAttribute('style', rgba);
+    });
+  });
+  /** =========== 调色板 ====================== */
+
+  var paletteImgs = imgs.slice(8, 16);
+  var paletteImgSrc = paletteImgs.map(function (img) {
+    return img.src;
+  });
+  var paletteEls = Array.from(document.querySelectorAll('.example-palette .img .palette'));
+  paletteImgSrc.forEach(function (src, index) {
+    var obj = (0, _core.default)(src);
+    obj.getColor(5).then(function (color) {
+      var html = color.palette.map(function (o) {
+        return "<div style='background:".concat(o.color, ";border-radius:50%;width:20px;height:20px;margin:5px;'></div>");
+      }).join('');
+      paletteEls[index] && (paletteEls[index].innerHTML = html);
+    });
+  });
 };
 },{"../src/core.js":"../src/core.js"}],"../../../../.config/yarn/global/node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
 var global = arguments[3];
@@ -1276,7 +1283,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "50012" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "59320" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};

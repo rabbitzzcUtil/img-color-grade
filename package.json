@@ -1,11 +1,11 @@
 {
     "name": "img-color-grade",
     "version": "1.0.0",
-    "main": "dist/core.min.js",
+    "main": "lib/core.min.js",
     "license": "MIT",
     "scripts": {
         "dev": "parcel examples/index.html",
-        "build": "rm -rf dist && parcel build src/core.js --no-source-maps --out-file core.min.js",
+        "build": "rm -rf lib && parcel build src/core.js --no-source-maps --out-dir lib --out-file core.min.js ",
         "test": ""
     },
     "repository": {
