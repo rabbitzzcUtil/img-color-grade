@@ -4,7 +4,7 @@ dist
 .cache
 
 src
-
+*.map
 examples/
 
 *.lock

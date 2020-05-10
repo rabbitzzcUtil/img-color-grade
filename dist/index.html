@@ -1,4 +1,113 @@
-<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><title>img-color-grade.js</title><link href="https://fonts.googleapis.com/css2?family=Righteous&display=swap" rel="stylesheet"><link href="https://fonts.googleapis.com/css2?family=Source+Code+Pro:ital,wght@1,300&display=swap" rel="stylesheet"><link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>💥</text></svg>"><link rel="stylesheet" href="/style.8129cadd.css"><link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/10.0.2/styles/default.min.css"></head><body> <div class="container"> <div class="intro">  <img src="/title.9a665723.png" alt="" width="400px">  <p>利用 canvas 获取图片颜色，可获取图片主色与次色，并提供生成渐变效果API。</p> <p>Obtain the main color and secondary color of the image, and provide the API for generating the gradient effect.</p> </div> <h3>渐变背景</h3> <hr> <div class="example"> <h4>The world famous paintings</h4> <div class="compare"> <div class="img" id="img1"> <img src="/George Engelhardt Schröder - Mehmed Said Efendi and his Retinue .6435e29b.jpg" id="testImg" style="width:200px"> </div> <div class="img" id="img2"> <img src="/梵高自拍.ddaae657.jpg" style="width:200px"> </div> <div class="img" id="img3"> <img src="/丰收谈话.c6a35ee2.png" style="width:200px"> </div> <div class="img" id="img4"> <img src="/大碗岛的星期天下午.d2af6e40.jpg" style="width:200px"> </div> </div> <h4>Bing images</h4> <div class="compare"> <div class="img" id="img5"> <img src="/乌尤尼盐沼，玻利维亚 (© Ignacio Palacios:Getty Images).a0649d70.jpg" id="testImg" style="width:200px"> </div> <div class="img" id="img6"> <img src="/正在照看花草的孩子和祖父铜雕，西班牙科尔多瓦 (© David M G:Alamy).eb3a79e6.jpg" style="width:200px"> </div> <div class="img" id="img7"> <img src="/库斯科附近萨克塞华曼的印加要塞，秘鲁 (© Susanne Kremer:eStock Photo).0d7c7d31.jpg" style="width:200px"> </div> <div class="img" id="img8"> <img src="/普尔曼附近的帕卢斯一辆拖拉机在耕作时扬起尘土，华盛顿州 (© Ben Herndon:Tandem Stills + Motion).2e1a44f9.jpg" style="width:200px"> </div> </div> </div> <h3>Palette</h3> <hr> <div class="example example-palette"> <h4>The world famous paintings</h4> <div class="compare"> <div class="img" id="img9"> <img src="/George Engelhardt Schröder - Mehmed Said Efendi and his Retinue .6435e29b.jpg" style="width:200px"> <div class="palette"></div> </div> <div class="img" id="img10"> <img src="/梵高自拍.ddaae657.jpg" style="width:200px"> <div class="palette"></div> </div> <div class="img" id="img11"> <img src="/丰收谈话.c6a35ee2.png" style="width:200px"> <div class="palette"></div> </div> <div class="img" id="img12"> <img src="/大碗岛的星期天下午.d2af6e40.jpg" style="width:200px"> <div class="palette"></div> </div> </div> <h4>Bing images</h4> <div class="compare"> <div class="img" id="img13"> <img src="/乌尤尼盐沼，玻利维亚 (© Ignacio Palacios:Getty Images).a0649d70.jpg" style="width:200px"> <div class="palette"></div> </div> <div class="img" id="img14"> <img src="/正在照看花草的孩子和祖父铜雕，西班牙科尔多瓦 (© David M G:Alamy).eb3a79e6.jpg" style="width:200px"> <div class="palette"></div> </div> <div class="img" id="img15"> <img src="/库斯科附近萨克塞华曼的印加要塞，秘鲁 (© Susanne Kremer:eStock Photo).0d7c7d31.jpg" style="width:200px"> <div class="palette"></div> </div> <div class="img" id="img16"> <img src="/普尔曼附近的帕卢斯一辆拖拉机在耕作时扬起尘土，华盛顿州 (© Ben Herndon:Tandem Stills + Motion).2e1a44f9.jpg" style="width:200px"> <div class="palette"></div> </div> </div> </div> <h3>Usage</h3> <hr> <div class="usage"> <pre class="javascript">
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>img-color-grade.js</title>
+    <link href="https://fonts.googleapis.com/css2?family=Righteous&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Source+Code+Pro:ital,wght@1,300&display=swap" rel="stylesheet">
+
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>💥</text></svg>">
+    <link rel="stylesheet" href="/style.e308ff8e.css">
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/10.0.2/styles/default.min.css">
+
+<script src="/style.e308ff8e.js"></script></head>
+
+<body>
+    <div class="container">
+        <div class="intro">
+            <!-- 需要增加一张图片 -->
+            <img src="/title.ed1129c0.png" alt="" width="400px">
+            <!-- <h1>img-color-grade</h1> -->
+            <p>利用 canvas 获取图片颜色，可获取图片主色与次色，并提供生成渐变效果API。</p>
+            <p>Obtain the main color and secondary color of the image, and provide the API for generating the gradient effect.</p>
+        </div>
+        <h3>渐变背景</h3>
+        <hr>
+        <div class="example">
+            <h4>The world famous paintings</h4>
+            <div class="compare">
+                <div class="img" id="img1">
+                    <img src="/George Engelhardt Schröder - Mehmed Said Efendi and his Retinue .5b29fde5.jpg" id="testImg" style="width:200px">
+                </div>
+                <div class="img" id="img2">
+                    <img src="/梵高自拍.3d0f10e3.jpg" style="width:200px">
+                </div>
+                <div class="img" id="img3">
+                    <img src="/丰收谈话.8c4f6ece.png" style="width:200px">
+                </div>
+                <div class="img" id="img4">
+                    <img src="/大碗岛的星期天下午.42f25f10.jpg" style="width:200px">
+                </div>
+            </div>
+
+            <h4>Bing images</h4>
+            <div class="compare">
+                <div class="img" id="img5">
+                    <img src="/乌尤尼盐沼，玻利维亚 (© Ignacio Palacios:Getty Images).212b3cc2.jpg" id="testImg" style="width:200px">
+                </div>
+                <div class="img" id="img6">
+                    <img src="/正在照看花草的孩子和祖父铜雕，西班牙科尔多瓦 (© David M G:Alamy).f51c2a87.jpg" style="width:200px">
+                </div>
+                <div class="img" id="img7">
+                    <img src="/库斯科附近萨克塞华曼的印加要塞，秘鲁 (© Susanne Kremer:eStock Photo).069816bb.jpg" style="width:200px">
+                </div>
+                <div class="img" id="img8">
+                    <img src="/普尔曼附近的帕卢斯一辆拖拉机在耕作时扬起尘土，华盛顿州.b6af61e3.jpg" style="width:200px">
+                </div>
+            </div>
+        </div>
+
+        <h3>Palette</h3>
+        <hr>
+        <div class="example example-palette">
+            <h4>The world famous paintings</h4>
+            <div class="compare">
+                <div class="img" id="img9">
+                    <img src="/George Engelhardt Schröder - Mehmed Said Efendi and his Retinue .5b29fde5.jpg" style="width:200px">
+
+                    <div class="palette"></div>
+                </div>
+                <div class="img" id="img10">
+                    <img src="/梵高自拍.3d0f10e3.jpg" style="width:200px">
+                    <div class="palette"></div>
+                </div>
+                <div class="img" id="img11">
+                    <img src="/丰收谈话.8c4f6ece.png" style="width:200px">
+                    <div class="palette"></div>
+                </div>
+                <div class="img" id="img12">
+                    <img src="/大碗岛的星期天下午.42f25f10.jpg" style="width:200px">
+                    <div class="palette"></div>
+                </div>
+            </div>
+
+            <h4>Bing images</h4>
+            <div class="compare">
+                <div class="img" id="img13">
+                    <img src="/乌尤尼盐沼，玻利维亚 (© Ignacio Palacios:Getty Images).212b3cc2.jpg" style="width:200px">
+                    <div class="palette"></div>
+                </div>
+                <div class="img" id="img14">
+                    <img src="/正在照看花草的孩子和祖父铜雕，西班牙科尔多瓦 (© David M G:Alamy).f51c2a87.jpg" style="width:200px">
+                    <div class="palette"></div>
+                </div>
+                <div class="img" id="img15">
+                    <img src="/库斯科附近萨克塞华曼的印加要塞，秘鲁 (© Susanne Kremer:eStock Photo).069816bb.jpg" style="width:200px">
+                    <div class="palette"></div>
+                </div>
+                <div class="img" id="img16">
+                    <img src="/普尔曼附近的帕卢斯一辆拖拉机在耕作时扬起尘土，华盛顿州.b6af61e3.jpg" style="width:200px">
+                    <div class="palette"></div>
+                </div>
+            </div>
+        </div>
+
+        <h3>Usage</h3>
+        <hr>
+        <div class="usage">
+            <pre class="javascript">
                 <code id="codeJS">
     const imgs = Array.from(document.querySelectorAll('.img img'))
     
@@ -29,12 +138,45 @@
         })
     })
                 </code>
-            </pre> </div> <h3>Download</h3> <hr> <pre>
+            </pre>    
+        </div>
+
+        <h3>Download</h3>
+        <hr>
+        <pre>
             <code class="bash">
 # yarn 
 yarn add img-color-grade
 # npm
 npm install --save img-color-grade
             </code>
-        </pre> <div class="download-flex"> <a href="https://github.com/fd532/img-color-grade">GitHub</a> <a href="https://github.com/fd532/img-color-grade" class="ml1 text-decoration-none border py1 px2 bold rounded">npm</a> </div> <h3>API</h3> <hr> <div class="get-color"> <h4>getColor(imageUrl, count)</h4> <h5>返回一个 Promise 对象，包括调色板，主色、次色</h5> <p>从图像获取主色。颜色以三个表示红色，绿色和蓝色值的 RGB(A) 格式的字符串。</p> <ul> <li>imageUrl - 图片url，为 img 标签的 src 属性，或者直接一个远程链接。</li> <li>count - 是一个可选参数，必须为1或更大的Integer，默认为10。</li> </ul> </div> <div class="get-color"> <h4>getRenderGradient()</h4> <h5>返回一段 Promise 对象，resolve 字符串，利用主色拼接成的 rgba 背景色</h5> <p>从图像获取排序的颜色，将两端的颜色与 background-image 拼接成 CSS 字符串。</p> </div> </div> <script src="/examples.de068af9.js"></script> <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/10.0.2/highlight.min.js"></script> <script>hljs.initHighlightingOnLoad();</script>
-</body></html>
+        </pre>
+        <div class="download-flex">
+            <a href="https://github.com/fd532/img-color-grade">GitHub</a>
+            <a href="https://www.npmjs.com/package/img-color-grade" class="ml1 text-decoration-none border py1 px2 bold rounded">npm</a>
+        </div>
+        <h3>API</h3>
+        <hr>
+        <div class="get-color">
+            <h4>getColor(imageUrl, count)</h4>
+            <h5>返回一个 Promise 对象，包括调色板，主色、次色</h5>
+            <p>从图像获取主色。颜色以三个表示红色，绿色和蓝色值的 RGB(A) 格式的字符串。</p>
+
+            <ul>
+                <li>imageUrl - 图片url，为 img 标签的 src 属性，或者直接一个远程链接。</li>
+                <li>count - 是一个可选参数，必须为1或更大的Integer，默认为10。</li>
+            </ul>
+        </div>
+        <div class="get-color">
+            <h4>getRenderGradient()</h4>
+            <h5>返回一段 Promise 对象，resolve 字符串，利用主色拼接成的 rgba 背景色</h5>
+            <p>从图像获取排序的颜色，将两端的颜色与 background-image 拼接成 CSS 字符串。</p>
+        </div>
+        
+    </div>
+    <script src="/examples.e31bb0bc.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/10.0.2/highlight.min.js"></script>
+    <script>hljs.initHighlightingOnLoad();</script>
+</body>
+
+</html>

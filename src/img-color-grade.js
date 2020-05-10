@@ -6,22 +6,21 @@ import {
 } from './lib'
 
 export default class imgColorGrade {
-    constructor(imgURL) {
-
-        if (typeof imgURL !== 'string') {
-            throw new Error('The parameter must be a url and a string.')
-        }
-
+    constructor(imgURL,scale) {
         this.imgURL = imgURL
+        this.scale = scale
 
         // canvas config
         this.canvas = this.getCanvasContext()
         this.canvas = this.canvas.getContext('2d')
 
     }
+    
 
     getCanvasContext(width = 100, height = 100) {
         const canvas = document.createElement('canvas')
+        width = width * this.scale
+        height = height * this.scale
         canvas.setAttribute('width', width)
         canvas.setAttribute('height', height)
         return canvas
@@ -118,7 +117,7 @@ export default class imgColorGrade {
     // 获取颜色数据中存在最多的颜色与存在最低的颜色，即数组的首尾
     async getExtremeValue() {
         // 最高值 与 最低值，前十个数据
-        const colorsObj = await this.getColor()
+        const colorsObj = await this.getColor(20)
         if (colorsObj.palette.length === 0) {
             throw new Error('Failed to obtain color data.')
         }

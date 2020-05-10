@@ -30,6 +30,9 @@ npm install img-color-grade --save
 <h3>Usage</h3>
 <hr>
 
+* src image url
+* scale image quality(0 ~1)
+
 ```js
  const imgs = Array.from(document.querySelectorAll('.img img'))
     
@@ -38,7 +41,7 @@ const famousImgs = imgs.slice(0, 8)
 const famousImgSrc = famousImgs.map(img => img.src)
 
 famousImgSrc.forEach((src,index) => {
-    const obj = colorGrade(src)
+    const obj = colorGrade(src, 0.3)
     obj.getRenderGradient().then(rgba => {
         famousImgs[index].parentNode.setAttribute('style', rgba)
     })
