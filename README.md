@@ -24,7 +24,7 @@ npm install img-color-grade --save
 <h4>script</h4>
 
 ```html
-<script src="xxx></script>
+<script src="//unpkg.com/img-color-grade@lastest></script>
 ```
 
 <h3>Usage</h3>
